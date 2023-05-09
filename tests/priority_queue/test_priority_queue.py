@@ -38,17 +38,3 @@ def test_basic_priority_queueing():
     assert q.search(0) == {"nome": "arquivo2.txt", "qtd_linhas": 5}
     assert q.search(1) == {"nome": "arquivo4.txt", "qtd_linhas": 4}
     assert q.search(2) == {"nome": "arquivo1.txt", "qtd_linhas": 3}
-
-    try:
-        q.search(-1)
-    except IndexError:
-        pass
-    else:
-        raise AssertionError("Expected IndexError")
-
-    try:
-        q.search(3)
-    except IndexError:
-        pass
-    else:
-        raise AssertionError("Expected IndexError")

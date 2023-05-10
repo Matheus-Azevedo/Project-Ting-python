@@ -1,11 +1,11 @@
 def exists_word(word, instance):
     result = []
     for file_path in instance.queue:
-        with open(file_path) as f:
+        with open(file_path['path']) as f:
             for line_num, line in enumerate(f.readlines()):
                 if word.lower() in line.lower():
                     info = {"palavra": word,
-                            "arquivo": file_path,
+                            "arquivo": file_path['file'],
                             "ocorrencias": [{"linha": line_num + 1}]
                             }
                     result.append(info)
